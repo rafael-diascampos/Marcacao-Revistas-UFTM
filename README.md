@@ -1,4 +1,4 @@
-# Marcação-Revistas-UFTM
+# Marcacao-Revistas-UFTM
 
 Add-in VBA para Microsoft Word: um botão que **importa os estilos de marcação** das revistas da Editora UFTM para o artigo que está aberto. Sem copiar e colar. Sem abrir modelo. Sem "Salvar como".
 
@@ -26,21 +26,35 @@ Guia passo a passo: ainda em elaboração (`docs/`).
 
 Arquivos baixados da internet podem ser bloqueados pelo Windows. O instalador deve desbloquear o `.dotm` antes de copiar. Se aparecer "O Windows protegeu o seu PC", use **Mais informações** → **Executar mesmo assim** (é esperado sem certificado de assinatura).
 
+## Estilos
+
+O conjunto é **o mesmo para todas as revistas da UFTM**, vindo do modelo ODT oficial (padrão SciELO/JATS). São 66 estilos: 51 de parágrafo e 15 de caractere.
+
+- Metadados: `Artigo_TituloPrincipal`, `Artigo_DOI`, `Artigo_Secao`, `Artigo_Licenca_CC`, etc.
+- Autoria: `Autor_Nome`, `Autor_Aff`, `Autor_Email`, `Autor_Orcid`
+- Resumos: `Resumo_PT` / `_EN` / `_ES`, com `Resumo_Titulo_*` e `Kwd_*`
+- Corpo: `Corpo_Texto`, `Citacao_Direta`, `Figura_Legenda`, `Figura_Fonte`, `Quadro_Legenda`, `Quadro_Fonte`
+- Referências: `Referencia_Item` e os estilos de caractere `Ref_Autor`, `Ref_Titulo`, `Ref_DOI`, `Ref_URL`, etc.
+
 ## Status
 
-Scaffold inicial. Ainda faltam: lista real de estilos (a partir do modelo da revista), macro `ImportarEstilosRevista`, ribbon mínimo, instalador e guia para monitores.
+Em construção (v0.1). Prontos: módulo VBA, XML do botão, instalador e roteiro de montagem. Falta gerar o `.dotm`, escrever o guia da equipe e publicar a primeira Release.
 
 ## Estrutura
 
 ```
 Marcacao-Revistas-UFTM/
   dist/            saida de build (.dotm; ignorado pelo git)
-  docs/            guia e notas de projeto
-  scripts/         instalador e build de release
-  src/             modulos VBA
+  docs/            MONTAR-DOTM.md e notas de projeto
+  modelo/          Modelo-Estilos-Revistas-UFTM.docx (fonte dos estilos)
+  ribbon/          customUI14.xml (o botao)
+  scripts/         Instalar.bat, Instalar-Revistas-UFTM.ps1, InjetarRibbon.ps1
+  src/             modImportarEstilosRevista.bas
   LICENSE
   README.md
 ```
+
+Como montar o `.dotm`: ver `docs/MONTAR-DOTM.md`.
 
 ## Licença
 
