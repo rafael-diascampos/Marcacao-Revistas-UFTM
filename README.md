@@ -1,4 +1,4 @@
-# Marcacao-Revistas-UFTM
+# Marcação-Revistas-UFTM
 
 Add-in VBA para Microsoft Word: um botão que **importa os estilos de marcação** das revistas da Editora UFTM para o artigo que está aberto. Sem copiar e colar. Sem abrir modelo. Sem "Salvar como".
 
